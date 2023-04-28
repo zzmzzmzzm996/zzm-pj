@@ -205,7 +205,7 @@ col_names = ['Gage1Target', 'Gage2Target', 'Gage3Target', 'Gage1Raw', 'Gage2Raw'
              'Gage2Smooth', 'Gage3Smooth', 'Logtime']
 # 需要的参数名（此处为平均克重）
 machine_weight_name = 'Gage1Smooth'
-predict_water = np.zeros(40)
+predict_water = np.zeros(39)
 
 
 def predict1(path, model):
