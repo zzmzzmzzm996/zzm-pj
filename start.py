@@ -205,7 +205,7 @@ col_names = ['Gage1Target', 'Gage2Target', 'Gage3Target', 'Gage1Raw', 'Gage2Raw'
              'Gage2Smooth', 'Gage3Smooth', 'Logtime']
 # 需要的参数名（此处为平均克重）
 machine_weight_name = 'Gage1Smooth'
-predict_water = np.zeros(29)
+predict_water = np.zeros(40)
 
 
 def predict1(path, model):
@@ -229,9 +229,9 @@ def predict1(path, model):
     predict_number = model.predict(water_run)
     logging.info(time.strftime('%y-%m-%d %H:%M:%S') + '\nPredicting water finished.')
     predict_water = np.append(predict_water, predict_number[0])
-    window = predict_water[-30:]
+    window = predict_water[-40:]
     high = window[window > water_goal]
-    ratio = len(high) / 30
+    ratio = len(high) / 40
     headers = {'Content-Type': 'application/json'}
     data = {
         "res": ratio
